@@ -24,7 +24,6 @@
   --input-border-active-color: var(--violet);
   --input-text-color: var(--white);
   --action-button-bg-color: var(--pink);
-  --action-button-bg-active-color: var(--violet);
   --action-button-text-color: var(--white);
 
   /* font */
@@ -170,12 +169,12 @@ body {
   background-color: var(--action-button-bg-color);
   border: none;
   border-radius: 8px;
+  box-shadow: 0 4px 0 rgb(122 36 137 / 80%);
 }
 
-.question-card__action-button:hover,
-.question-card__action-button:focus {
-  background-color: var(--action-button-bg-active-color);
-  transition: background-color 0.2s;
+.question-card__action-button:active {
+  box-shadow: 0 1px 0 rgb(122 36 137 / 80%);
+  transform: translateY(3px);
 }
 
 .question-card__action-button:focus:not(:focus-visible) {
