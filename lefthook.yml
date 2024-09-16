@@ -2,7 +2,7 @@ pre-commit:
   parallel: true
   commands:
     html-fixer:
-      glob: "*.html"
+      glob: '*.html'
       run: |
         npx markuplint --fix --problem-only {staged_files}
         npx prettier --write --log-level=error {staged_files}
@@ -11,15 +11,23 @@ pre-commit:
       skip:
         - merge
     css-fixer:
-      glob: "css/*.css"
+      glob: 'css/*.css'
       run: |
         npx stylelint --fix --quiet {staged_files}
         npx prettier --write --log-level=error {staged_files}
       stage_fixed: true
       skip:
         - merge
+    js-fixer:
+      glob: 'js/*.js'
+      run: |
+        npx eslint --fix --quiet {staged_files}
+        npx prettier --write --log-level=error {staged_files}
+      stage_fixed: true
+      skip:
+        - merge
     formatter:
-      glob: "**/*.{json,yml}"
+      glob: '**/*.{json,yml}'
       run: npx prettier --write --log-level=error {staged_files}
       stage_fixed: true
       skip:
@@ -27,7 +35,7 @@ pre-commit:
 
 prepare-commit-msg:
   scripts:
-    "extraction-issue-number":
+    'extraction-issue-number':
       # 応答する処理があっても動作するようにする
       interactive: true
       runner: sh
