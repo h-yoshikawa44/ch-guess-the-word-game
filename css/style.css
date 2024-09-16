@@ -135,11 +135,11 @@ body {
 
 .question-card__form-input-group {
   display: flex;
-  column-gap: 4px;
+  column-gap: 6px;
 }
 
 .question-card__form-input {
-  width: 40px;
+  width: 44px;
   height: 40px;
   font-size: 1.25rem;
   color: var(--input-text-color);
@@ -157,6 +157,7 @@ body {
 .question-card__action-button-group {
   display: flex;
   column-gap: 40px;
+  justify-content: center;
   margin-top: 52px;
 }
 
