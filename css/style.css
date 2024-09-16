@@ -95,6 +95,7 @@ body {
   letter-spacing: 16px;
   background-color: var(--question-bg-color);
   border-radius: 4px;
+  box-shadow: 0 4px 0 rgb(0 0 0 / 40%);
 }
 
 .question-card__infos {
