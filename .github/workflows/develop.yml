@@ -1,0 +1,40 @@
+name: Develop Check
+on:
+  workflow_call:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  check:
+    name: Lint
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          cache: npm
+          cache-dependency-path: './package-lock.json'
+
+      - name: Package Clean Install
+        run: npm ci
+
+      - name: Lint & Prettier
+        run: npm run lint-check
+
+      - name: Slack Notification by NonSuccess
+        uses: 8398a7/action-slack@v3
+        if: success() != true
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow
+          author_name: 'check'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
