@@ -3,6 +3,7 @@
 
 :root {
   --black: #030616;
+  --light-black: #1f293a;
   --gray: #4a5567;
   --light-gray: #97a3b6;
   --white: #f2f5f9;
@@ -11,7 +12,8 @@
   --pink: #c951e7;
 
   /* color map */
-  --card-bg-color: var(--black);
+  --card-bg-primary-color: var(--black);
+  --card-bg-secondary-color: var(--light-black);
   --question-bg-color: var(--gray);
   --question-text-color: var(--light-gray);
   --secondary-text-color: var(--gray);
@@ -71,7 +73,11 @@ body {
   width: 100%;
   max-width: 420px;
   padding: 28px;
-  background-color: var(--card-bg-color);
+  background: linear-gradient(
+    to right bottom,
+    var(--card-bg-primary-color),
+    var(--card-bg-secondary-color)
+  );
   border-radius: 12px;
 }
 
