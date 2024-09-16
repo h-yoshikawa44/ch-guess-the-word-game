@@ -24,3 +24,12 @@ pre-commit:
       stage_fixed: true
       skip:
         - merge
+
+prepare-commit-msg:
+  scripts:
+    "extraction-issue-number":
+      # 応答する処理があっても動作するようにする
+      interactive: true
+      runner: sh
+      skip:
+        - rebase
