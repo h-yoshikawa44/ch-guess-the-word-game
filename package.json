@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check:prettier": "prettier --check \"./**/*.{html,css,json,yml}\"",
+    "fix:prettier": "npm run check:prettier -- --write"
   },
   "devDependencies": {
+    "prettier": "^3.3.3",
     "vite": "^5.0.0"
   },
   "volta": {
