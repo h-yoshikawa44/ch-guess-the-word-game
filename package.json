@@ -7,16 +7,22 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint-check": "npm run lint:markuplint && npm run check:prettier",
+    "lint-check": "npm run lint:markuplint && npm run lint:stylelint && npm run check:prettier",
     "lint:markuplint": "markuplint \"./**/*.html\"",
+    "lint:stylelint": "stylelint \"./css/**/*.css\"",
     "check:prettier": "prettier --check \"./**/*.{html,css,json,yml}\"",
-    "fix": "npm run fix:markuplint && npm run fix:prettier",
+    "fix": "npm run fix:markuplint && npm run fix:stylelint && npm run fix:prettier",
     "fix:markuplint": "npm run lint:markuplint -- --fix",
+    "fix:stylelint": "npm run lint:stylelint -- --fix",
     "fix:prettier": "npm run check:prettier -- --write"
   },
   "devDependencies": {
     "markuplint": "^4.9.3",
     "prettier": "^3.3.3",
+    "stylelint": "^16.9.0",
+    "stylelint-config-recess-order": "^5.1.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-order": "^6.0.4",
     "vite": "^5.0.0"
   },
   "volta": {
