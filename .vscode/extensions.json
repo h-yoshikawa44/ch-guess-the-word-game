@@ -7,6 +7,7 @@
     "editorconfig.editorconfig",
     "naumovs.color-highlight",
     "zignd.html-css-class-completion",
+    "yusukehirao.vscode-markuplint",
     "esbenp.prettier-vscode"
   ],
   // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
