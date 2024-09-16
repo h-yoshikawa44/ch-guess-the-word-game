@@ -17,6 +17,8 @@
     "fix:prettier": "npm run check:prettier -- --write"
   },
   "devDependencies": {
+    "browserslist": "^4.23.3",
+    "lightningcss": "^1.27.0",
     "markuplint": "^4.9.3",
     "prettier": "^3.3.3",
     "stylelint": "^16.9.0",
