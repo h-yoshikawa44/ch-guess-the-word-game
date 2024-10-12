@@ -20,6 +20,18 @@ export class RandomWordGame {
   #wordLength;
 
   /**
+   * 間違えた英字の配列
+   * @type {string[]}
+   */
+  #mistakeWordList = [];
+
+  /**
+   * 再挑戦回数
+   * @type {number}
+   */
+  #triesCount = 0;
+
+  /**
    * @param {string} randomWord 出題元の英単語
    */
   constructor(randomWord) {
@@ -35,5 +47,34 @@ export class RandomWordGame {
 
   getWordLength() {
     return this.#wordLength;
+  }
+
+  getMistakeWordList() {
+    return this.#mistakeWordList;
+  }
+
+  getTriesCount() {
+    return this.#triesCount;
+  }
+
+  /**
+   * 1文字あたりの回答チェック判定
+   * @param {string} word 回答した英字
+   * @param {number} index 何文字目か
+   */
+  isAnswerCheckWord(word, index) {
+    const listIndex = index - 1;
+    return this.#answerSplitWords[listIndex] === word;
+  }
+
+  /**
+   * @param {string} word 間違えた英字
+   */
+  addMistakeWord(word) {
+    this.#mistakeWordList = [...this.#mistakeWordList, word];
+  }
+
+  countUpTries() {
+    this.#triesCount += 1;
   }
 }

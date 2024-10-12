@@ -34,26 +34,36 @@
           <div id="question" class="question-card__question">relowf</div>
           <div class="question-card__infos">
             <p class="question-card__tries-info">
-              Tries(4/5):
+              Tries(<span id="tries-count">0</span>/5):
               <span class="question-card__tries-info-step-group">
                 <span
-                  class="question-card__tries-info-step question-card__tries-info-step--active"
+                  id="tries-1"
+                  class="question-card__tries-info-step"
                 ></span>
                 <span
-                  class="question-card__tries-info-step question-card__tries-info-step--active"
+                  id="tries-2"
+                  class="question-card__tries-info-step"
                 ></span>
                 <span
-                  class="question-card__tries-info-step question-card__tries-info-step--active"
+                  id="tries-3"
+                  class="question-card__tries-info-step"
                 ></span>
                 <span
-                  class="question-card__tries-info-step question-card__tries-info-step--active"
+                  id="tries-4"
+                  class="question-card__tries-info-step"
                 ></span>
-                <span class="question-card__tries-info-step"></span>
+                <span
+                  id="tries-5"
+                  class="question-card__tries-info-step"
+                ></span>
               </span>
             </p>
             <p class="question-card__mistakes-info">
               Mistakes:
-              <span class="question-card__mistakes-info-word">a, e, w, t</span>
+              <span
+                id="mistake-words"
+                class="question-card__mistakes-info-words"
+              ></span>
             </p>
           </div>
           <form class="question-card__form" action="">

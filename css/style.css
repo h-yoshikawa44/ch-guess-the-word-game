@@ -22,6 +22,7 @@
   --mistake-word-text-color: var(--light-gray);
   --input-border-color: var(--gray);
   --input-border-active-color: var(--violet);
+  --input-border-correct-color: var(--white);
   --input-text-color: var(--white);
   --action-button-bg-color: var(--pink);
   --action-button-text-color: var(--white);
@@ -119,11 +120,11 @@ body {
   border-radius: 50%;
 }
 
-.question-card__tries-info-step--active {
+.question-card__tries-info-step.question-card__tries-info-step--active {
   background-color: var(--try-count-bg-active-color);
 }
 
-.question-card__mistakes-info-word {
+.question-card__mistakes-info-words {
   padding-left: 4px;
   font-size: 0.875rem;
   color: var(--mistake-word-text-color);
@@ -149,6 +150,10 @@ body {
   background-color: transparent;
   border: 2px solid var(--input-border-color);
   border-radius: 8px;
+}
+
+.question-card__form-input.question-card__form-input--correct {
+  border: 2px solid var(--input-border-correct-color);
 }
 
 .question-card__form-input:focus {
