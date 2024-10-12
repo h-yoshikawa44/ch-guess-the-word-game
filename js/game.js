@@ -67,6 +67,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     inputElement.type = 'text';
     inputElement.maxLength = '1';
     inputElement.ariaLabel = `Answer input field - ${index}`;
+    inputElement.autocomplete = 'off';
     inputElement.oninput = handleAnswerCheck(randomWordGame, index);
     return inputElement;
   };
