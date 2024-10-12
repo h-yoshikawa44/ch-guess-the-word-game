@@ -54,6 +54,14 @@ window.addEventListener('DOMContentLoaded', async () => {
   };
 
   /**
+   * フォーカスされた時、テキストを全選択状態にする
+   * @param {FocusEvent} e フォーカスイベント
+   */
+  const handleFocusSelect = (e) => {
+    e.target.select();
+  };
+
+  /**
    * 回答欄1つあたりを生成する
    * @param {RandomWordGame} randomWordGame ゲーム管理クラスのインスタンス
    * @param {number} index インデックス
@@ -69,6 +77,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     inputElement.ariaLabel = `Answer input field - ${index}`;
     inputElement.autocomplete = 'off';
     inputElement.oninput = handleAnswerCheck(randomWordGame, index);
+    inputElement.onfocus = handleFocusSelect;
     return inputElement;
   };
 
