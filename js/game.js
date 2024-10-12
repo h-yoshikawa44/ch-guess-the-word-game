@@ -71,10 +71,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     const randomWordGame = new RandomWordGame(randomWord);
 
     answerGroup.innerHTML = '';
-    Array.from(
-      { length: randomWordGame.getWordLength() },
-      (_v, i) => i,
-    ).forEach((_, index) => {
+    [...Array(randomWordGame.getWordLength())].forEach((_, index) => {
       answerGroup.insertAdjacentElement(
         'beforeend',
         createInputElement(randomWordGame, index + 1),
