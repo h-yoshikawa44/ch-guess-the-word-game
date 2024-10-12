@@ -13,6 +13,7 @@ const triesElementList = [
 ];
 const mistakeWordsElement = document.getElementById('mistake-words');
 const answerGroupElement = document.getElementById('answer-group');
+const randomButtonElement = document.getElementById('random-button');
 const resetButtonElement = document.getElementById('reset-button');
 
 window.addEventListener('DOMContentLoaded', async () => {
@@ -113,6 +114,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     initialGame();
   };
 
+  randomButtonElement.addEventListener('click', initialGame);
   resetButtonElement.addEventListener('click', resetGame);
   await initialGame();
 });
