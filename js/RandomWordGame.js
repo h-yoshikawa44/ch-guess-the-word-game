@@ -5,7 +5,7 @@ export class RandomWordGame {
    * 正答英単語を分割した配列
    * @type {string[]}
    */
-  #answerSplitWords;
+  #answerSplitWords = [];
 
   /**
    * 出題する文字列
@@ -76,5 +76,13 @@ export class RandomWordGame {
 
   countUpTries() {
     this.#triesCount += 1;
+  }
+
+  allReset() {
+    this.#answerSplitWords = [];
+    this.#quesitonWord = '';
+    this.#wordLength = 0;
+    this.#triesCount = 0;
+    this.#mistakeWordList = [];
   }
 }

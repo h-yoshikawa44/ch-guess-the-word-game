@@ -13,8 +13,12 @@ const triesElementList = [
 ];
 const mistakeWordsElement = document.getElementById('mistake-words');
 const answerGroupElement = document.getElementById('answer-group');
+const resetButtonElement = document.getElementById('reset-button');
 
 window.addEventListener('DOMContentLoaded', async () => {
+  /** @type {RandomWordGame} */
+  let randomWordGame;
+
   /**
    * @param {RandomWordGame} randomWordGame ゲーム管理クラスのインスタンス
    * @param {number} index 何文字目か
@@ -84,7 +88,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const initialGame = async () => {
     const randomWordNumber = getRandomNumber(10);
     const randomWord = (await getRandomWord(randomWordNumber))[0];
-    const randomWordGame = new RandomWordGame(randomWord);
+    randomWordGame = new RandomWordGame(randomWord);
 
     answerGroupElement.innerHTML = '';
     [...Array(randomWordGame.getWordLength())].forEach((_, index) => {
@@ -99,5 +103,16 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('answer-input-1').focus();
   };
 
+  const resetGame = () => {
+    randomWordGame.allReset();
+    triesCountElement.textContent = randomWordGame.getTriesCount();
+    triesElementList.forEach((ele) => {
+      ele.classList.remove('question-card__tries-info-step--active');
+    });
+    mistakeWordsElement.textContent = '';
+    initialGame();
+  };
+
+  resetButtonElement.addEventListener('click', resetGame);
   await initialGame();
 });
