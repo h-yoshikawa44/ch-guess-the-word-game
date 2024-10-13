@@ -19,6 +19,9 @@
     "fix:prettier": "npm run check:prettier -- --write",
     "prepare": "lefthook install || echo 'Can not set git hooks'"
   },
+  "dependencies": {
+    "random-words": "^2.0.1"
+  },
   "devDependencies": {
     "browserslist": "^4.23.3",
     "eslint": "^9.10.0",
