@@ -72,7 +72,7 @@ body {
   align-items: center;
   width: 100%;
   max-width: 420px;
-  padding: 28px;
+  padding: 28px 28px 32px;
   background: linear-gradient(
     to right bottom,
     var(--card-bg-primary-color),
