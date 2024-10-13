@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Guess The Word Game</title>
+    <meta
+      name="description"
+      content="devChallenges.io - Guess The Word Game | by h-yoshikawa44"
+    />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/ch-guess-the-word-game/favicon.ico" />
+
+    <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Outfit:wght@400..700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/ch-guess-the-word-game/assets/index-D7NEI1pr.js"></script>
+    <link rel="stylesheet" crossorigin href="/ch-guess-the-word-game/assets/index-BZ8Lp1ls.css">
+  </head>
+  <body>
+    <main class="main">
+      <div class="container">
+        <div class="question-card">
+          <h1>
+            <img
+              src="/ch-guess-the-word-game/assets/word-scramblle-CxLaxg_L.svg"
+              alt="Word Scramblle"
+              width="144"
+              height="16"
+            />
+          </h1>
+          <div id="question" class="question-card__question">relowf</div>
+          <div class="question-card__infos">
+            <div class="question-card__infos-container">
+              <p class="question-card__tries-info">
+                Tries(<span id="tries-count">0</span>/5):
+                <span class="question-card__tries-info-step-group">
+                  <span
+                    id="tries-1"
+                    class="question-card__tries-info-step"
+                  ></span>
+                  <span
+                    id="tries-2"
+                    class="question-card__tries-info-step"
+                  ></span>
+                  <span
+                    id="tries-3"
+                    class="question-card__tries-info-step"
+                  ></span>
+                  <span
+                    id="tries-4"
+                    class="question-card__tries-info-step"
+                  ></span>
+                  <span
+                    id="tries-5"
+                    class="question-card__tries-info-step"
+                  ></span>
+                </span>
+              </p>
+              <p class="question-card__mistakes-info">
+                Mistakes:
+                <span
+                  id="mistake-words"
+                  class="question-card__mistakes-info-words"
+                ></span>
+              </p>
+            </div>
+          </div>
+          <form class="question-card__form" action="">
+            <div id="answer-group" class="question-card__form-input-group">
+              <input
+                class="question-card__form-input"
+                name="answer-1"
+                type="text"
+                maxlength="1"
+                value="f"
+                aria-label="Answer input field - 1"
+              />
+              <input
+                class="question-card__form-input"
+                name="answer-2"
+                type="text"
+                maxlength="1"
+                value="l"
+                aria-label="Answer input field - 2"
+              />
+              <input
+                class="question-card__form-input"
+                name="answer-3"
+                type="text"
+                maxlength="1"
+                value="o"
+                aria-label="Answer input field - 3"
+              />
+              <input
+                class="question-card__form-input"
+                name="answer-4"
+                type="text"
+                maxlength="1"
+                value="w"
+                aria-label="Answer input field - 4"
+              />
+              <input
+                class="question-card__form-input"
+                name="answer-5"
+                type="text"
+                maxlength="1"
+                value="_"
+                aria-label="Answer input field - 5"
+              />
+              <input
+                class="question-card__form-input"
+                name="answer-6"
+                type="text"
+                maxlength="1"
+                value=""
+                aria-label="Answer input field - 6"
+              />
+            </div>
+            <div class="question-card__action-button-group">
+              <button
+                id="random-button"
+                class="question-card__action-button"
+                type="button"
+              >
+                Random
+              </button>
+              <button
+                id="reset-button"
+                class="question-card__action-button"
+                type="reset"
+              >
+                Reset
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
