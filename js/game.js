@@ -33,7 +33,13 @@ window.addEventListener('DOMContentLoaded', async () => {
       const currentInputElement = document.getElementById(
         `answer-input-${index}`,
       );
-      document.getElementById(`answer-input-${index + 1}`).focus();
+      // 次の入力欄がある時だけ、次の入力欄を自動フォーカスする
+      const nextInputElement = document.getElementById(
+        `answer-input-${index + 1}`,
+      );
+      if (nextInputElement !== null) {
+        document.getElementById(`answer-input-${index + 1}`).focus();
+      }
 
       if (randomWordGame.isAnswerCheckWord(answerWord, index)) {
         currentInputElement.classList.add('question-card__form-input--correct');
