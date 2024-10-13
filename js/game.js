@@ -1,6 +1,5 @@
-import { getRandomWord } from './randomWordApi';
+import { generate } from 'random-words';
 import { RandomWordGame } from './RandomWordGame';
-import { getRandomNumber } from './util';
 
 const questionElement = document.getElementById('question');
 const triesCountElement = document.getElementById('tries-count');
@@ -109,9 +108,7 @@ window.addEventListener('DOMContentLoaded', async () => {
    * 出題内容の初期セットアップ
    */
   const initialGame = async () => {
-    const randomWordNumber = getRandomNumber(10);
-    const randomWord = (await getRandomWord(randomWordNumber))[0];
-    randomWordGame = new RandomWordGame(randomWord);
+    randomWordGame = new RandomWordGame(generate({ maxLength: 8 }));
 
     answerGroupElement.innerHTML = '';
     [...Array(randomWordGame.getWordLength())].forEach((_, index) => {
