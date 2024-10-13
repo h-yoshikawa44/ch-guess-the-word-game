@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       // 全文字正解時は、正解メッセージを出す
       if (randomWordGame.isAllCorrect()) {
         alert('🎉 Success');
-        initialGame();
+        resetGame();
       }
     };
   };
