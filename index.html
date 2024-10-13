@@ -31,33 +31,45 @@
               height="16"
             />
           </h1>
-          <div class="question-card__question">relowf</div>
+          <div id="question" class="question-card__question">relowf</div>
           <div class="question-card__infos">
-            <p class="question-card__tries-info">
-              Tries(4/5):
-              <span class="question-card__tries-info-step-group">
+            <div class="question-card__infos-container">
+              <p class="question-card__tries-info">
+                Tries(<span id="tries-count">0</span>/5):
+                <span class="question-card__tries-info-step-group">
+                  <span
+                    id="tries-1"
+                    class="question-card__tries-info-step"
+                  ></span>
+                  <span
+                    id="tries-2"
+                    class="question-card__tries-info-step"
+                  ></span>
+                  <span
+                    id="tries-3"
+                    class="question-card__tries-info-step"
+                  ></span>
+                  <span
+                    id="tries-4"
+                    class="question-card__tries-info-step"
+                  ></span>
+                  <span
+                    id="tries-5"
+                    class="question-card__tries-info-step"
+                  ></span>
+                </span>
+              </p>
+              <p class="question-card__mistakes-info">
+                Mistakes:
                 <span
-                  class="question-card__tries-info-step question-card__tries-info-step--active"
+                  id="mistake-words"
+                  class="question-card__mistakes-info-words"
                 ></span>
-                <span
-                  class="question-card__tries-info-step question-card__tries-info-step--active"
-                ></span>
-                <span
-                  class="question-card__tries-info-step question-card__tries-info-step--active"
-                ></span>
-                <span
-                  class="question-card__tries-info-step question-card__tries-info-step--active"
-                ></span>
-                <span class="question-card__tries-info-step"></span>
-              </span>
-            </p>
-            <p class="question-card__mistakes-info">
-              Mistakes:
-              <span class="question-card__mistakes-info-word">a, e, w, t</span>
-            </p>
+              </p>
+            </div>
           </div>
           <form class="question-card__form" action="">
-            <div class="question-card__form-input-group">
+            <div id="answer-group" class="question-card__form-input-group">
               <input
                 class="question-card__form-input"
                 name="answer-1"
@@ -108,10 +120,18 @@
               />
             </div>
             <div class="question-card__action-button-group">
-              <button class="question-card__action-button" type="button">
+              <button
+                id="random-button"
+                class="question-card__action-button"
+                type="button"
+              >
                 Random
               </button>
-              <button class="question-card__action-button" type="reset">
+              <button
+                id="reset-button"
+                class="question-card__action-button"
+                type="reset"
+              >
                 Reset
               </button>
             </div>

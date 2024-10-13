@@ -16,7 +16,7 @@ export default [
     files: ['js/**/*.js'],
     languageOptions: {
       parserOptions: {
-        ecmaVersion: 12,
+        ecmaVersion: 13,
         sourceType: 'module',
       },
       globals: {
