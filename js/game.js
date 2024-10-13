@@ -52,16 +52,16 @@ window.addEventListener('DOMContentLoaded', async () => {
           .getMistakeWordList()
           .join(', ');
         randomWordGame.countUpTries();
-      }
 
-      const triesCount = randomWordGame.getTriesCount();
-      if (triesCount >= 6) {
-        console.log('out');
-      } else {
-        triesCountElement.textContent = triesCount;
-        triesElementList[triesCount - 1].classList.add(
-          'question-card__tries-info-step--active',
-        );
+        const triesCount = randomWordGame.getTriesCount();
+        if (triesCount >= 6) {
+          console.log('out');
+        } else {
+          triesCountElement.textContent = triesCount;
+          triesElementList[triesCount - 1].classList.add(
+            'question-card__tries-info-step--active',
+          );
+        }
       }
     };
   };
