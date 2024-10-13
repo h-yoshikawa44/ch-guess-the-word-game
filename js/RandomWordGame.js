@@ -3,9 +3,9 @@ import { getShuffledList } from './util';
 export class RandomWordGame {
   /**
    * 正答英単語を分割した配列
-   * @type {string[]}
+   * @type {{word: string, isCorrect: boolean}[]}
    */
-  #answerSplitWords = [];
+  #answerSplitWordList = [];
 
   /**
    * 出題する文字列
@@ -36,7 +36,12 @@ export class RandomWordGame {
    */
   constructor(randomWord) {
     this.#wordLength = randomWord.length;
-    this.#answerSplitWords = randomWord.split('');
+    this.#answerSplitWordList = randomWord.split('').map((word) => {
+      return {
+        word,
+        isCorrect: false,
+      };
+    });
     const shuffledWordList = getShuffledList(randomWord.split(''));
     this.#quesitonWord = shuffledWordList.join('');
   }
@@ -64,7 +69,23 @@ export class RandomWordGame {
    */
   isAnswerCheckWord(word, index) {
     const listIndex = index - 1;
-    return this.#answerSplitWords[listIndex] === word;
+    return this.#answerSplitWordList[listIndex]['word'] === word;
+  }
+
+  isAllCorrect() {
+    return this.#answerSplitWordList.every((wordInfo) => {
+      return wordInfo.isCorrect;
+    });
+  }
+
+  /**
+   * 正解、不正解かを記録する
+   * @param {boolean} isCorrect 正解か
+   * @param {number} index 何文字目か
+   */
+  updateWordIsCorrect(isCorrect, index) {
+    const listIndex = index - 1;
+    this.#answerSplitWordList[listIndex]['isCorrect'] = isCorrect;
   }
 
   /**
@@ -79,7 +100,7 @@ export class RandomWordGame {
   }
 
   allReset() {
-    this.#answerSplitWords = [];
+    this.#answerSplitWordList = [];
     this.#quesitonWord = '';
     this.#wordLength = 0;
     this.#triesCount = 0;

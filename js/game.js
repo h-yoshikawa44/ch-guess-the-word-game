@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   let randomWordGame;
 
   /**
-   * 入力された1文字の回答確認
+   * 入力された1文字の回答確認～記録
    * @param {number} index 何文字目か
    */
   const handleAnswerCheck = (index) => {
@@ -41,18 +41,21 @@ window.addEventListener('DOMContentLoaded', async () => {
         document.getElementById(`answer-input-${index + 1}`).focus();
       }
 
-      if (randomWordGame.isAnswerCheckWord(answerWord, index)) {
+      const isCorrect = randomWordGame.isAnswerCheckWord(answerWord, index);
+      if (isCorrect) {
         currentInputElement.classList.add('question-card__form-input--correct');
       } else {
         currentInputElement.classList.remove(
           'question-card__form-input--correct',
         );
+        // ミスした文字記録とミス回数の更新
         randomWordGame.addMistakeWord(answerWord);
         mistakeWordsElement.textContent = randomWordGame
           .getMistakeWordList()
           .join(', ');
         randomWordGame.countUpTries();
 
+        // 更新したミス回数をステップ表示に反映
         const triesCount = randomWordGame.getTriesCount();
         if (triesCount >= 6) {
           console.log('out');
@@ -62,6 +65,14 @@ window.addEventListener('DOMContentLoaded', async () => {
             'question-card__tries-info-step--active',
           );
         }
+      }
+
+      // 正解・不正解の記録
+      randomWordGame.updateWordIsCorrect(isCorrect, index);
+      // 全文字正解時は、正解メッセージを出す
+      if (randomWordGame.isAllCorrect()) {
+        alert('🎉 Success');
+        initialGame();
       }
     };
   };
