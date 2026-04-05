@@ -58,8 +58,8 @@ Base
 - [HTML](https://developer.mozilla.org/ja/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/ja/docs/Web/CSS)
 - [JavaScript](https://developer.mozilla.org/ja/docs/Web/JavaScript)
-- [Node.js](https://nodejs.org/)：20.16.0
-- [Vite](https://ja.vitejs.dev/)：5.4.8
+- [Node.js](https://nodejs.org/)：24.14.1
+- [Vite](https://ja.vitejs.dev/)
 
 Other major libraries
 

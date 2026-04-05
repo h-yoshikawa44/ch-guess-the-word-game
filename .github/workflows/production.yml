@@ -12,7 +12,7 @@ jobs:
   deploy:
     name: Build & Deploy
     needs: check
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
       # gh-pages ブランチへの書き込み用
@@ -20,17 +20,20 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 #v6
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # V6
         with:
           node-version-file: '.node-version'
           cache: npm
           cache-dependency-path: './package-lock.json'
 
-      - name: Package Clean Install
-        run: npm ci
+      - name: Setup safe-chain
+        run: npm i -g @aikidosec/safe-chain && safe-chain setup-ci
+
+      - name: Package Clean Install With Safe Chain
+        run: npm ci --ignore-scripts
 
       - name: Build & Deploy to GitHub Pages
         run: |
@@ -40,12 +43,30 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Slack Notification
-        uses: 8398a7/action-slack@v3
+        uses: slackapi/slack-github-action@91efab103c0de0a537f72a35f6b8cda0ee76bf0a # 2.1.1
         if: always()
         with:
-          status: ${{ job.status }}
-          fields: repo,message,commit,author,action,eventName,ref,workflow
-          author_name: 'deploy'
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            text: "${{ env.STATUS_MARK }} *${{ env.STATUS_TEXT }}*"
+            blocks:
+              - type: "section"
+                text:
+                  type: "mrkdwn"
+                  text: "${{ env.STATUS_MARK }} *${{ env.STATUS_TEXT }}*"
+              - type: "section"
+                fields:
+                  - type: "mrkdwn"
+                    text: "*リポジトリ:*\n<${{ env.REPO_URL }}|${{ github.repository }}>"
+                  - type: "mrkdwn"
+                    text: "*JOB のステータス:*\n${{ job.status }}"
+              - type: "context"
+                elements:
+                  - type: "mrkdwn"
+                    text: "必要に応じて<${{ env.ACTIONS_URL }}|JOB>のログを確認してください"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          STATUS_MARK: ${{ job.status == 'success' && ':チェックマーク_緑:' || ':x:' }}
+          STATUS_TEXT: ${{ job.status == 'success' && '成功' || '失敗' }}
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+          ACTIONS_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

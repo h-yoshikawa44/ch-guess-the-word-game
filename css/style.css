@@ -164,8 +164,8 @@ body {
 }
 
 .question-card__form-input:focus {
-  border: 2px solid var(--input-border-active-color);
   outline: transparent;
+  border: 2px solid var(--input-border-active-color);
 }
 
 .question-card__action-button-group {
