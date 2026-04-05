@@ -37,8 +37,5 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-order": "^6.0.4",
     "vite": "^5.0.0"
-  },
-  "volta": {
-    "node": "20.16.0"
   }
 }
